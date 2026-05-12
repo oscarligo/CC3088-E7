@@ -7,7 +7,12 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+    * Crea la infraestructura base de autenticación del proyecto.
+    *
+    * Tablas creadas:
+    * - users: usuarios del sistema con rol, email verificado y password hasheada
+    * - password_reset_tokens: recuperación de contraseña
+    * - sessions: sesiones persistentes de Laravel
      */
     public function up(): void
     {
@@ -39,7 +44,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+        * Revierte la infraestructura base eliminando las tablas creadas en up().
      */
     public function down(): void
     {

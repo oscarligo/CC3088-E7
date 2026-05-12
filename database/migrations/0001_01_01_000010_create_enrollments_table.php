@@ -6,6 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Crea la tabla enrollments para registrar inscripciones de usuarios en cursos.
+     *
+     * Relaciones principales:
+     * - user_id -> users
+     * - course_id -> courses
+     *
+     * Restricción importante:
+     * - unique(['user_id', 'course_id']) evita inscripciones duplicadas
+     */
     public function up(): void
     {
         Schema::create('enrollments', function (Blueprint $table) {
@@ -23,6 +33,7 @@ return new class extends Migration
 
     public function down(): void
     {
+        // Elimina la tabla de inscripciones.
         Schema::dropIfExists('enrollments');
     }
 };

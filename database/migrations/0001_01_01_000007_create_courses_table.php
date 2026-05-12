@@ -6,6 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Crea la tabla courses como entidad central del dominio académico.
+     *
+     * Relaciones principales:
+     * - teacher_id -> users (profesor)
+     * - category_id -> categories
+     * - level_id -> levels
+     *
+     * Campos relevantes:
+     * - title, slug, description, price, is_published, published_at
+     */
     public function up(): void
     {
         Schema::create('courses', function (Blueprint $table) {
@@ -25,6 +36,7 @@ return new class extends Migration
 
     public function down(): void
     {
+        // Elimina la tabla central de cursos.
         Schema::dropIfExists('courses');
     }
 };

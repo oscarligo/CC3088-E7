@@ -26,6 +26,30 @@ Este laboratorio modela un sistema tipo Udemy o Platzi con estas 10 tablas:
 - database/migrations --> Migraciones requeridas.
 - app/Http/Controllesr/EloquentDemoController.php --> Ejemplo de queriso de los requisitos. 
 
+### Migraciones del dominio
+
+Las migraciones del laboratorio documentan 10 tablas del dominio principal:
+
+| Migración | Tabla | Propósito |
+| --- | --- | --- |
+| 0001_01_01_000000_create_users_table.php | users, password_reset_tokens, sessions | Autenticación y sesiones |
+| 0001_01_01_000003_create_profiles_table.php | profiles | Información adicional del usuario |
+| 0001_01_01_000004_create_categories_table.php | categories | Clasificación de cursos |
+| 0001_01_01_000005_create_levels_table.php | levels | Nivel de dificultad |
+| 0001_01_01_000006_create_tags_table.php | tags | Etiquetas temáticas |
+| 0001_01_01_000007_create_courses_table.php | courses | Entidad principal del sistema |
+| 0001_01_01_000008_create_lessons_table.php | lessons | Lecciones por curso |
+| 0001_01_01_000009_create_reviews_table.php | reviews | Calificaciones y comentarios |
+| 0001_01_01_000010_create_enrollments_table.php | enrollments | Inscripciones de usuarios |
+| 0001_01_01_000011_create_course_tag_table.php | course_tag | Relación many-to-many curso-etiqueta |
+
+Puntos importantes de diseño:
+- `profiles.user_id` usa `unique()` para forzar una relación 1:1.
+- `courses.teacher_id`, `courses.category_id` y `courses.level_id` representan las FKs del modelo central.
+- `reviews` y `enrollments` usan claves compuestas únicas para evitar duplicados.
+- `course_tag` usa clave primaria compuesta para la pivote many-to-many.
+- Se usan tipos de columna como `json`, `decimal`, `boolean`, `date` y `timestamp` para reflejar el dominio.
+
 
 ### Relaciones importantes
 

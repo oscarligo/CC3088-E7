@@ -6,6 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Crea la tabla reviews para registrar la calificación y comentario de un usuario sobre un curso.
+     *
+     * Relaciones principales:
+     * - user_id -> users
+     * - course_id -> courses
+     *
+     * Restricción importante:
+     * - unique(['user_id', 'course_id']) evita reseñas duplicadas por usuario y curso
+     */
     public function up(): void
     {
         Schema::create('reviews', function (Blueprint $table) {
@@ -22,6 +32,7 @@ return new class extends Migration
 
     public function down(): void
     {
+        // Elimina la tabla de reseñas.
         Schema::dropIfExists('reviews');
     }
 };

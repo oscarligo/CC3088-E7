@@ -6,6 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Crea la tabla tags para etiquetar cursos con términos temáticos.
+     *
+     * Campos clave:
+     * - name: etiqueta visible
+     * - slug: identificador único para la relación many-to-many
+     */
     public function up(): void
     {
         Schema::create('tags', function (Blueprint $table) {
@@ -18,6 +25,7 @@ return new class extends Migration
 
     public function down(): void
     {
+        // Elimina la tabla de etiquetas.
         Schema::dropIfExists('tags');
     }
 };

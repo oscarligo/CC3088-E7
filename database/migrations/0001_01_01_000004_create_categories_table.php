@@ -6,6 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Crea la tabla categories para clasificar cursos por dominio o tema.
+     *
+     * Campos clave:
+     * - name: nombre visible de la categoría
+     * - slug: identificador único para URLs y filtros
+     */
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
@@ -18,6 +25,7 @@ return new class extends Migration
 
     public function down(): void
     {
+        // Elimina la tabla de categorías.
         Schema::dropIfExists('categories');
     }
 };

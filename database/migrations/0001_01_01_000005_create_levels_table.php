@@ -6,6 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Crea la tabla levels para representar el nivel de dificultad del curso.
+     *
+     * Campos clave:
+     * - name: nivel legible para el usuario
+     * - slug: identificador único para búsquedas y filtros
+     */
     public function up(): void
     {
         Schema::create('levels', function (Blueprint $table) {
@@ -18,6 +25,7 @@ return new class extends Migration
 
     public function down(): void
     {
+        // Elimina la tabla de niveles.
         Schema::dropIfExists('levels');
     }
 };
