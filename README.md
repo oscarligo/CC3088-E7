@@ -22,8 +22,9 @@ Este laboratorio modela un sistema tipo Udemy o Platzi con estas 10 tablas:
 
 
 ### Estructura importante: 
-app/Models --> Las entidades en la base de datos.
-database/migrations --> Migraciones requeridas.
+- app/Models --> Las entidades en la base de datos.
+- database/migrations --> Migraciones requeridas.
+- app/Http/Controllesr/EloquentDemoController.php --> Ejemplo de queriso de los requisitos. 
 
 
 ### Relaciones importantes
@@ -50,11 +51,6 @@ docker compose up --build
 http://localhost:8000/eloquent-demo
 ```
 
-3. Si quieres recrear la base de datos dentro del contenedor:
-
-```bash
-docker compose exec app php artisan migrate:fresh
-```
 
 ### Consulta de ejemplo
 
