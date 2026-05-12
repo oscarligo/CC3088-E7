@@ -47,7 +47,7 @@ docker compose up --build
 2. Abrir la ruta de demostración:
 
 ```bash
-http://localhost:24889/eloquent-demo
+http://localhost:8000/eloquent-demo
 ```
 
 3. Si quieres recrear la base de datos dentro del contenedor:
